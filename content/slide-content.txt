@@ -37,14 +37,17 @@ Slide: Product inspiration: Sauna AI. Learn from the public UX patterns: home, a
 Slide: Our own application is separate from Hermes's dashboard; Hermes is the intelligence behind it.
 Slide: The experience is tailored through onboarding, not through different versions for a coder and a businessperson.
 
-SECTION 6 — LIVE DEMO #2: BUILD AND ONBOARD (approx. 25–45 min)
+SECTION 6 — LIVE DEMO #2: CONNECT THE PREPARED UI AND ONBOARD (approx. 25–45 min)
+Slide: Facilitator is preparing a separate custom UI starter ahead of the workshop; this session is integration, NOT live frontend construction. Do not claim the starter exists until it is tested.
+Slide: Each participant connects the prepared UI to THEIR OWN Hermes instance; keep personal data and credentials separate.
 Slide: Our application architecture: browser -> authenticated app server -> Hermes API.
 Slide: Start a conversational onboarding INSIDE the new app.
 Slide: Press microphone and speak; speech becomes text. Typing always works.
 Slide: The app stores a user-reviewed editable profile.
-Slide: Optionally connect Gmail through the Nous Portal flow, with user approval before any reading.
+Slide: Optionally connect Gmail through the Nous Portal flow, with user approval before any reading; only show as connected after verification.
 Slide: Hermes proposes a few helpful actions based on known facts.
 Slide: User approves one safe action. Hermes does it; UI shows observed results.
+Slide: If the UI starter is missing or fails to connect, fall back to the native Hermes interface and still demonstrate an actual task and onboarding conversation.
 
 SECTION 7 — TAKE IT HOME (approx. 5–10 min)
 Slide: Secure access, backups, updates, and permissions matter.
@@ -53,7 +56,7 @@ Slide: Workshop resource repository: https://github.com/ComicBit/workshop
 
 PACING
 For 3 hours: concepts 35 min; Proxmox and networking 20; bootstrap 55; remote test 15; UI onboarding 45; questions 10.
-For 2 hours: shorten concepts, pre-stage installers/templates and a functional UI starter. Do not sacrifice validation or safe host permissions.
+For 2 hours: shorten concepts, pre-stage installers/templates and test a functional UI starter beforehand. Do not sacrifice validation or safe host permissions. If the starter isn't ready, use the native Hermes UI fallback.
 
 OPEN FOR DISCUSSION
 Hardware capability; provider and Nous Portal entitlement; language; how much UI code to prebuild; what counts as an achievable live outcome.
