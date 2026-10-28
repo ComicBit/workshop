@@ -1,10 +1,10 @@
-# Demo 2 — Build a separate Sauna-inspired personal UI for Hermes
+# Demo 2 — Connect the facilitator-prepared personal UI to Hermes
 
-**This is the build brief for an agent working on the second project.** Do not confuse it with the onboarding system prompt in 03-personal-onboarding.md.
+**This is an integration brief for a UI prepared separately by the facilitator; that starter is NOT available in this repository yet.** Do not confuse it with the onboarding behavior prompt in 03-personal-onboarding.md. Do not claim the frontend has been delivered or ask attendees to build it from scratch.
 
 ## Mission — copy into Hermes or an authorized development agent
 
-Build a small, mobile-first **personal AI assistant web application** with its own visual identity, UX, onboarding and backend. The user interacts with THIS application, not Hermes's built-in dashboard.
+**Integrate and deploy the provided starter application**, a small mobile-first personal AI interface with its own visual identity and onboarding, with the local Hermes instance as its sole AI engine. The user interacts with THIS application, not Hermes's built-in dashboard. Preserve the existing UI and improve only what is needed to connect it. If the starter files are absent, report that blocker; do not falsely describe an implementation as complete.
 
 Study the public user experience described at https://www.sauna.ai/learn/web-app as reference for **product patterns only** (home/chat, activity, memory, suggestions, schedule, connections). DO NOT copy proprietary code, trademarks, logos, private screens, or exact branded artwork. Call our app WORKSHOP ASSISTANT until its owner names it.
 
@@ -16,7 +16,7 @@ browser (phone/computer)
 Hermes handles the actual work. bb and Paperclip are **not necessary** to run this app.
 
 FIRST ACTION:
-Inspect the actual Hermes installation/version and GET its documented /v1/capabilities endpoint, then read current Hermes API docs. Use the documented API endpoints and streaming event types if present. NEVER invent a Hermes API endpoint or claim features without tests. Inspect any existing files/starter before writing new code.
+Inspect the PROVIDED starter source, how it launches, its existing API routes, onboarding and microphone controls. Then inspect the actual Hermes installation/version and the currently documented capabilities and API routes. Use only endpoints and streaming events supported by the installed version; verify with real requests. NEVER invent a Hermes API endpoint or claim features without tests. Do not replace the prepared UI with a newly generated frontend unless explicitly instructed.
 
 WORKSHOP MVP (must be real):
 1. A polished, responsive home/chat screen on mobile and desktop, distinct from the Hermes dashboard.
@@ -53,7 +53,7 @@ SECURITY / DEPLOYMENT:
 - Gracefully handle missing provider credentials, gateway outage and tool errors.
 
 WORKSHOP TIMEBOX:
-Prefer an inspectable working happy path to six decorative placeholder pages. Build chat + intro + editable profile + one suggested action FIRST. Add Gmail connector onboarding only after these work. Avoid feature creep.
+The UI is prepared BEFORE the workshop, not built live. PRIORITY: launch the starter, connect it to the participant's own Hermes backend, verify speech-to-text or text fallback, start onboarding inside the custom UI, save editable context, and complete one suggested, user-approved task. Gmail connection is optional and only added after the core path works. If the starter is not ready, do the core demonstration in Hermes's native interface and mark custom UI integration as PENDING.
 
 TESTS / DEMONSTRATION:
 - First run displays onboarding; user can speak OR type answers.
@@ -65,6 +65,6 @@ TESTS / DEMONSTRATION:
 - Service survives restart and can be reached from a participant's phone via private network.
 
 DELIVERABLE:
-Source in its own project/repository, README with start/deploy instructions, env.example WITHOUT real keys, architecture notes, test instructions, and an honest achieved/partial/blocked checklist. Never report features complete based on mock screenshots.
+Integrate the existing starter in its own source project/repository when supplied, document which participant-specific values must be configured, supply an env.example WITHOUT real keys, test instructions, and an honest achieved/partial/blocked checklist. The facilitator will supply the starter repository; it does not exist yet in this workshop repo. Never report features complete based on mock screenshots.
 
 Reference: https://hermes-agent.nousresearch.com/docs/user-guide/features/api-server
