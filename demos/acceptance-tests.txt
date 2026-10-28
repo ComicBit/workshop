@@ -1,0 +1,35 @@
+DEMONSTRATION ACCEPTANCE TESTS (NOT A CLAIM THESE ALREADY PASSED)
+
+DEMO 1 — HERMES BOOTSTRAPS THE TOOLING
+[ ] Proxmox host and original Hermes LXC exist and can be administered safely.
+[ ] Hermes can reach the Proxmox management API with a human-approved scope.
+[ ] Hermes proposed two resource allocations before writing anything.
+[ ] bb and Paperclip have TWO distinct new unprivileged LXCs.
+[ ] Service processes automatically restart and survive LXC reboot.
+[ ] bb's UI opens and a REAL agent-backed test produces output.
+[ ] Paperclip's UI opens and a REAL task/adapter test produces output.
+[ ] Shared-provider configuration uses only supported auth methods.
+[ ] The update mechanism takes a backup first and verifies health.
+[ ] Tailscale is connected and phone-to-private-URL access works via cellular.
+[ ] The operator understands how to recover/restart the system.
+
+DEMO 2 — PERSONAL HERMES CONTROL CENTER
+[ ] Standalone independently branded frontend, NOT stock Hermes dashboard.
+[ ] App authenticates user and proxies requests to Hermes with server-only key.
+[ ] User can complete conversational onboarding inside custom UI.
+[ ] Microphone to speech-to-text works on one supported device; typing fallback elsewhere.
+[ ] Editable profile persists across reload and isn't publicly readable.
+[ ] Hermes responds via REAL documented API and updates activity log.
+[ ] Suggestions are grounded in actual answers, not hallucinated inbox data.
+[ ] At least one approved low-risk action executes and reports its outcome.
+[ ] Gmail button presents authentic connect/connected/needs-action state; no mock “connected”.
+[ ] If connector eligible, the user can consent to one bounded read; no mail sent automatically.
+[ ] App available through private tailnet from a phone.
+[ ] Repository contains README, setup instructions and env.example without secrets.
+
+FACILITATOR EXIT CHECK
+“Can you explain which component actually reasons, which executes, which hosts services, and how you review the agent's work?”
+“Can you open your home machine from your phone without exposing it publicly?”
+“Can you name one real task the assistant completed, not merely promised?”
+
+If any check is not completed, label it PENDING or BLOCKED — do not hide it.
