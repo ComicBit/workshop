@@ -1,0 +1,36 @@
+TAILSCALE — THE SIMPLE EXPLANATION + SETUP CHECKLIST
+
+WHAT IT IS
+Imagine your phone and home server are on the same private network even when you're out of the house. Tailscale creates secure connections between devices you authorize, across the internet, without needing to open ports on the home router.
+
+WHY WE USE IT
+- Reach Proxmox and home services remotely.
+- Avoid exposing server admin pages directly on the public web.
+- Keep each participant's devices in their own tailnet.
+- An invitation to a tailnet is not unlimited permission to all applications: each application still needs authentication where sensitive.
+
+LIVE EXPLANATION (30 SECONDS)
+“Your old computer stays at home and keeps working. Tailscale creates a private road between your phone and that computer. Only devices you have enrolled and permitted can use that road.”
+
+SETUP WALKTHROUGH
+1. The participant signs up/signs in to https://tailscale.com/ .
+2. Install Tailscale on the Proxmox host using the CURRENT official Proxmox instructions: https://tailscale.com/docs/integrations/proxmox . Host install can make the Proxmox UI accessible; additional LXC services still need an intentional network path.
+3. Join the host to the participant's tailnet. Confirm it shows in the Tailscale admin console.
+4. Install Tailscale on the participant's phone/laptop and sign into the SAME tailnet.
+5. Verify the private Tailscale IP or MagicDNS name of the host. Navigate to https://<tailnet-host-or-ip>:8006 . Proxmox may show a certificate warning until valid tailnet HTTPS is configured; do not ignore unexpected identity issues.
+6. Decide how each guest service is reachable: private reverse proxy, separately enrolled LXC if appropriate, or controlled LAN routing; do NOT assume every LXC automatically gets its own tailnet IP.
+7. Verify access to Hermes and workshop UI using authenticated, private URLs.
+8. Turn phone Wi-Fi off; test from cellular. Confirm the service still works.
+9. Confirm no router forwarding / Tailscale Funnel / public exposures were enabled.
+
+SECURITY
+- Do not paste enrollment keys into workshop notes or public repositories.
+- Apply appropriate tailnet ACL/grants and device approval if available.
+- Keep separate users' accounts and infrastructure isolated.
+- Hermes's API is especially privileged: retain bearer authentication, never expose the key in browser JavaScript, and keep the API protected behind the backend.
+- A VPN is not a backup and not a universal security substitute.
+- Record only the commands that were actually executed and any unresolved access issues.
+
+CITE / VERIFY
+Tailscale's maintained Proxmox guide, last validated Jan 5, 2026:
+https://tailscale.com/docs/integrations/proxmox
