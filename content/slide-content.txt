@@ -1,0 +1,62 @@
+AI AGENT WORKSHOP — TEXT-ONLY PRESENTATION OUTLINE
+Warsaw, 28 October 2026 | 2–3 hours
+Status: draft for discussion, not finished slides.
+
+GOAL
+Bring an unused computer back to life as an always-available AI assistant. Participants should understand what an agent does, see one build its infrastructure, and use a simple custom interface to interact with it.
+
+SECTION 1 — AI FROM CHAT TO ACTION (approx. 20 min)
+Slide: Why a conversational model is not the whole product.
+Talking points: models predict and generate; harnesses supply tools, memory, scheduling and execution; connectors give access to services; an orchestrator coordinates work.
+Slide: Why agents fail.
+Talking points: poor instructions, missing permissions, invented results, unintended actions, spending surprises. Good workflow: inspect, plan, execute, validate, report.
+Slide: Cloud versus local.
+Talking points: local host can use a cloud model; a locally running model has different compute and memory demands. Explain costs and tradeoffs.
+
+SECTION 2 — THE TOOLS (approx. 15 min)
+Slide: Hermes: personal AI agent, memory, tools, scheduling, messaging, provider access.
+Slide: bb: agentic development workspace and technical project execution.
+Slide: Paperclip: coordinating agents, projects, workflows and approvals.
+Slide: Why separate responsibilities? They overlap but solve different operating problems.
+
+SECTION 3 — BRING BACK AN OLD COMPUTER (approx. 15 min)
+Slide: Proxmox as a small home server; what host, virtual machine and LXC mean.
+Slide: Proposed setup: Hermes LXC, bb LXC, Paperclip LXC.
+Slide: Tailscale in one sentence: a private path between your phone and home server without public router ports. It does not eliminate app authentication.
+
+SECTION 4 — LIVE DEMO #1: THE AGENT BUILDS ITS ENVIRONMENT (approx. 40–55 min)
+Slide: Human installs Proxmox and starts Hermes in an initial LXC.
+Slide: Scan a QR code to open prompts/01-hermes-bootstrap.md and copy its mission.
+Slide: Hermes inspects the host, presents a resource plan and provisions two new LXCs with authorization.
+Slide: It installs bb and Paperclip, sets startup and safe maintenance, then tests both applications.
+Slide: What actually happened? Inspect logs, service health and real tasks rather than trusting a success message.
+Slide: Connect Tailscale and open the private resources from a phone.
+
+SECTION 5 — A PERSONAL ASSISTANT, NOT ANOTHER CHATBOT (approx. 10 min)
+Slide: Product inspiration: Sauna AI. Learn from the public UX patterns: home, activity, memory, scheduled work and connections.
+Slide: Our own application is separate from Hermes's dashboard; Hermes is the intelligence behind it.
+Slide: The experience is tailored through onboarding, not through different versions for a coder and a businessperson.
+
+SECTION 6 — LIVE DEMO #2: BUILD AND ONBOARD (approx. 25–45 min)
+Slide: Our application architecture: browser -> authenticated app server -> Hermes API.
+Slide: Start a conversational onboarding INSIDE the new app.
+Slide: Press microphone and speak; speech becomes text. Typing always works.
+Slide: The app stores a user-reviewed editable profile.
+Slide: Optionally connect Gmail through the Nous Portal flow, with user approval before any reading.
+Slide: Hermes proposes a few helpful actions based on known facts.
+Slide: User approves one safe action. Hermes does it; UI shows observed results.
+
+SECTION 7 — TAKE IT HOME (approx. 5–10 min)
+Slide: Secure access, backups, updates, and permissions matter.
+Slide: Try one new personally meaningful task tomorrow.
+Slide: Workshop resource repository: https://github.com/ComicBit/workshop
+
+PACING
+For 3 hours: concepts 35 min; Proxmox and networking 20; bootstrap 55; remote test 15; UI onboarding 45; questions 10.
+For 2 hours: shorten concepts, pre-stage installers/templates and a functional UI starter. Do not sacrifice validation or safe host permissions.
+
+OPEN FOR DISCUSSION
+Hardware capability; provider and Nous Portal entitlement; language; how much UI code to prebuild; what counts as an achievable live outcome.
+
+PRESENTATION NOTE
+This file is CONTENT ONLY. No slide deck is created in this repository. Later slides should show two QR codes: repository home and the first Hermes bootstrap prompt.
