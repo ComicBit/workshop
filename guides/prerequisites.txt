@@ -1,0 +1,42 @@
+WORKSHOP PREPARATION — BRING THIS
+
+BEFORE ARRIVING
+- One spare x86-64 computer per participant, preferably with 8+ GB RAM, working storage and hardware virtualization support. 16 GB is much more comfortable; these are planning targets, not verified minimums for all software.
+- Power supply, Ethernet cable if possible, display/keyboard for firmware/installer, and a USB drive large enough for Proxmox installer.
+- Back up all important files: installing Proxmox may ERASE the selected boot disk.
+- Internet connection, phone, and laptop/browser for accessing interfaces.
+- A supported AI provider account/API key or eligible Nous Portal account. Expect API/usage charges where applicable; a chat subscription may not provide an API key.
+- GitHub account optional for later coding; Tailscale account will be needed for private remote access.
+
+WHAT WE WILL SET UP
+- Proxmox VE host.
+- Hermes in its own Debian LXC; facilitator handles baseline install.
+- Hermes provisions bb and Paperclip as separate LXCs (Demo 1).
+- Tailscale for remote access; put phone and server in same user's tailnet.
+- Custom Sauna-inspired personal app, with Hermes as its backend (Demo 2). This is a working prototype, not a SaaS clone.
+
+HUMAN-SUPERVISED CHECKPOINTS
+- Identify the correct disk before installing Proxmox.
+- Confirm resources, free LXC IDs and authorized host permissions.
+- Approve first host configuration and app/service writes.
+- Verify private networking; don't publish admin ports on router.
+- Approve Nous Portal/Gmail authorization and separately approve reading any emails.
+- Review what the agent actually accomplished vs merely attempted.
+
+IF SOMETHING FAILS
+- No Proxmox compatible hardware? Demonstrate from the facilitator's preconfigured host.
+- Limited CPU/RAM? Prefer cloud LLM inference; remember local agent != local model.
+- No Gmail connector? Continue with a spoken personal profile.
+- No speech recognition in the browser? Use the text input.
+- bb/Paperclip install taking too long? Show a real logged phase, move to the Hermes UI demo, finish the service validation after the workshop.
+- Remote access not working? Do not open router ports as a quick fix.
+
+AVOID
+- Putting private emails, keys, screenshots of tokens, or IP addresses into the public GitHub repo.
+- Granting unrestricted permanent Proxmox root access to the agent.
+- Claiming unattended updates are harmless without tested backup/rollback.
+
+Useful upstream links:
+https://www.proxmox.com/en/products/proxmox-virtual-environment/overview
+https://hermes-agent.nousresearch.com/docs/
+https://tailscale.com/docs/integrations/proxmox
