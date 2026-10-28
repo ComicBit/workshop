@@ -8,7 +8,7 @@ A 2–3 hour, hands-on workshop for two curious participants (one developer, one
 
 - [Slide content — plain text](content/slide-content.txt): talk track, timings, and demo transitions.
 - [First mission: Hermes bootstraps Proxmox services](prompts/01-hermes-bootstrap.md): copyable task prompt.
-- [Second mission: build a custom assistant UI](prompts/02-build-control-center.md): a separate, Sauna-inspired frontend using Hermes as its only agent engine.
+- [Second mission: connect the prepared assistant UI](prompts/02-build-control-center.md): integrate a separate Sauna-inspired frontend with each participant's own Hermes instance. The UI is being prepared and is not yet available in this repository.
 - [Onboarding behavior prompt](prompts/03-personal-onboarding.md): voice-first personal discovery, optional Gmail connection, proactive suggestions.
 - [Participant setup](guides/prerequisites.txt): bring an old computer, provider access, and a phone.
 - [Tailscale quick guide](guides/tailscale.txt): private remote access, no router port forwarding.
@@ -21,10 +21,14 @@ A 2–3 hour, hands-on workshop for two curious participants (one developer, one
 2. **Revive old hardware:** facilitator installs Proxmox; Hermes lives in its own LXC.
 3. **Bootstrap using AI:** Hermes creates separate Debian LXCs for bb and Paperclip, configures them, and verifies they run.
 4. **Connect privately:** introduce Tailscale and set up remote access.
-5. **Make it personal:** build a **distinct web interface**, inspired by Sauna's product patterns, connected to Hermes — **not** a reskin of Hermes's built-in dashboard.
+5. **Make it personal:** connect the separately prepared **custom web interface** to each participant's own Hermes instance — **not** a reskin of Hermes's built-in dashboard.
 6. **Onboard through that interface:** voice-to-text, short conversation, optional Nous Portal Gmail connection, editable profile and a first suggested task.
 
 bb and Paperclip are part of demo 1; **the custom personal assistant must NOT require them**. They are available for later work.
+
+## Demo 2: agreed live scope
+
+The facilitator is preparing the UI separately; **the starter repository and working route are not available yet**. The live exercise is **connecting**, not building the frontend from scratch. Minimum UI: microphone/speech-to-text with typed fallback, a way to start conversational onboarding inside the UI, and a secure Hermes connection. Every attendee connects to their **own** Hermes installation and retains separate personal data. If the starter is not available or the integration fails, demonstrate onboarding and a real task directly through Hermes rather than claiming the custom app is working. Gmail via Nous Portal is a useful extension when available and authorized, not a prerequisite for the baseline demo.
 
 ```text
 OLD MACHINE / PROXMOX
