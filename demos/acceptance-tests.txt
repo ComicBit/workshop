@@ -13,8 +13,10 @@ DEMO 1 — HERMES BOOTSTRAPS THE TOOLING
 [ ] Tailscale is connected and phone-to-private-URL access works via cellular.
 [ ] The operator understands how to recover/restart the system.
 
-DEMO 2 — PERSONAL HERMES CONTROL CENTER
+DEMO 2 — PERSONAL HERMES CONTROL CENTER (INTEGRATION DEMO, UI PREPARED SEPARATELY)
+[ ] Facilitator supplies an actual working UI starter before the event (currently NOT confirmed).
 [ ] Standalone independently branded frontend, NOT stock Hermes dashboard.
+[ ] Each attendee configures their OWN Hermes backend and private user data; no shared credentials or profiles.
 [ ] App authenticates user and proxies requests to Hermes with server-only key.
 [ ] User can complete conversational onboarding inside custom UI.
 [ ] Microphone to speech-to-text works on one supported device; typing fallback elsewhere.
@@ -31,5 +33,7 @@ FACILITATOR EXIT CHECK
 “Can you explain which component actually reasons, which executes, which hosts services, and how you review the agent's work?”
 “Can you open your home machine from your phone without exposing it publicly?”
 “Can you name one real task the assistant completed, not merely promised?”
+
+FALLBACK: If custom UI starter/integration is incomplete, complete onboarding and one real task in Hermes's native interface, mark the custom UI tasks PENDING, and do not pretend the standalone app is ready.
 
 If any check is not completed, label it PENDING or BLOCKED — do not hide it.
