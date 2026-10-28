@@ -18,10 +18,15 @@ AGREED
 - Gmail/other connectors via Nous Portal are a desirable part of flow, with user authorization and least privilege.
 - The point is not to pre-tailor to programmer vs crypto person; personalization emerges through onboarding.
 - Workshop repo hosts learning resources, prompts, setup notes, and text-first slide content. Visual slides made separately.
+- The facilitator is ALREADY PREPARING the standalone UI; no UI repository or working URL has been supplied yet.
+- Demo 2 is explicitly an INTEGRATION/ONBOARDING exercise, not a live build-from-scratch exercise.
+- The minimum UI includes speech-to-text (with typing fallback) and an onboarding-start action in the custom interface.
+- Each participant must connect the UI to their OWN Hermes instance, not a shared assistant.
+- If the custom UI is unavailable, demonstrate a truthful working onboarding and task using Hermes directly.
 
 NOT YET AGREED / MUST VERIFY
 - Exact second-app UI/UX, name and visual direction.
-- Whether there is time to build all UI from scratch versus deploy a prepared starter.
+- When the facilitator's UI starter repository and working route will be available; verify its Hermes API integration before the event.
 - Hardware CPU/RAM/disk per attendee and Proxmox-compatible boot paths.
 - Whether attendees' paid Nous Portal or other provider access enables Gmail connectors.
 - Whether the UI can drive the latest connector authorization route directly or must open an assisted setup flow.
@@ -31,10 +36,10 @@ NOT YET AGREED / MUST VERIFY
 - Final order of remote-access onboarding relative to app demo.
 
 SCOPE DISCIPLINE
-Success is NOT cloning every Sauna feature. Success is a genuinely working custom surface:
+Success is NOT cloning every Sauna feature or building the frontend during the event. The preferred success is a genuinely working, separately prepared custom surface:
 voice or text onboarding -> approved editable profile -> useful grounded suggestion
 -> explicit approval -> verifiable Hermes action.
-Gmail integration is a target, not permission to claim it works without a connection test.
+Gmail integration is a target, not permission to claim it works without a connection test. If the starter is missing, the fallback is the native Hermes interface, explicitly labeled as a fallback rather than a completed custom app.
 
 OBSERVED TOOL ACCESS
 Workshop GitHub repository: https://github.com/ComicBit/workshop
