@@ -13,8 +13,11 @@ DEMO 1 — HERMES BOOTSTRAPS THE TOOLING
 [ ] Tailscale is connected and phone-to-private-URL access works via cellular.
 [ ] The operator understands how to recover/restart the system.
 
-DEMO 2 — PERSONAL HERMES CONTROL CENTER (INTEGRATION DEMO, UI PREPARED SEPARATELY)
-[ ] Facilitator supplies an actual working UI starter before the event (currently NOT confirmed).
+DEMO 2 — PERSONAL HERMES CONTROL CENTER (SOURCE: demos/02-hermes-webapp/)
+Starter source supplied; it is a local mock prototype, not a live integration.
+Start with prompts/02-build-control-center.md and the starter README.
+[ ] Node.js 20+: run npm test and npm start in demos/02-hermes-webapp/; open localhost:3000.
+[ ] Complete and rehearse authenticated integration before the event; unit tests alone do not prove live Hermes.
 [ ] Standalone independently branded frontend, NOT stock Hermes dashboard.
 [ ] Each attendee configures their OWN Hermes backend and private user data; no shared credentials or profiles.
 [ ] App authenticates user and proxies requests to Hermes with server-only key.

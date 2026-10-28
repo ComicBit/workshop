@@ -10,15 +10,15 @@ AGREED
 - First live demonstration: Hermes provisions two more LXCs and installs bb and Paperclip, including startup, access and recoverable update arrangements.
 - One AI provider per user's setup where technically and contractually supported; no unsafe sharing of OAuth credentials.
 - Introduce Tailscale simply and configure private remote access.
-- Second exercise is a personal AI assistant INSPIRED BY Sauna from Wordware.
+- Second exercise integrates the supplied Hermes webapp into a personal AI assistant.
 - It has a SEPARATE custom UI, not a fork/theme of Hermes's dashboard.
 - Hermes is the engine of that app. bb and Paperclip are NOT runtime dependencies.
 - Onboarding happens INSIDE the new UI, ideally voice-first; speech-to-text (not text-to-speech).
 - During onboarding, the assistant learns user-approved context and can propose real useful actions.
 - Gmail/other connectors via Nous Portal are a desirable part of flow, with user authorization and least privilege.
 - The point is not to pre-tailor to programmer vs crypto person; personalization emerges through onboarding.
-- Workshop repo hosts learning resources, prompts, setup notes, and text-first slide content. Visual slides made separately.
-- The facilitator is ALREADY PREPARING the standalone UI; no UI repository or working URL has been supplied yet.
+- Workshop repo hosts learning resources, prompts, setup notes, presentation.pen and the Demo 2 source.
+- The supplied standalone UI lives in demos/02-hermes-webapp/. It runs locally in mock mode; live integration is not yet verified.
 - Demo 2 is explicitly an INTEGRATION/ONBOARDING exercise, not a live build-from-scratch exercise.
 - The minimum UI includes speech-to-text (with typing fallback) and an onboarding-start action in the custom interface.
 - Each participant must connect the UI to their OWN Hermes instance, not a shared assistant.
@@ -26,7 +26,7 @@ AGREED
 
 NOT YET AGREED / MUST VERIFY
 - Exact second-app UI/UX, name and visual direction.
-- When the facilitator's UI starter repository and working route will be available; verify its Hermes API integration before the event.
+- Implement and verify the starter's authenticated Hermes integration before the event; local mock mode is not a working live route.
 - Hardware CPU/RAM/disk per attendee and Proxmox-compatible boot paths.
 - Whether attendees' paid Nous Portal or other provider access enables Gmail connectors.
 - Whether the UI can drive the latest connector authorization route directly or must open an assisted setup flow.
@@ -36,7 +36,7 @@ NOT YET AGREED / MUST VERIFY
 - Final order of remote-access onboarding relative to app demo.
 
 SCOPE DISCIPLINE
-Success is NOT cloning every Sauna feature or building the frontend during the event. The preferred success is a genuinely working, separately prepared custom surface:
+Success is NOT connecting every mock feature or building the frontend during the event. The preferred success is a genuinely working, separately prepared custom surface:
 voice or text onboarding -> approved editable profile -> useful grounded suggestion
 -> explicit approval -> verifiable Hermes action.
 Gmail integration is a target, not permission to claim it works without a connection test. If the starter is missing, the fallback is the native Hermes interface, explicitly labeled as a fallback rather than a completed custom app.

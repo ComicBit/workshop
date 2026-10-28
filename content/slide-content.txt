@@ -1,65 +1,651 @@
-AI AGENT WORKSHOP — TEXT-ONLY PRESENTATION OUTLINE
-Warsaw, 28 October 2026 | 2–3 hours
-Status: draft for discussion, not finished slides.
+AGENTIC AI WORKSHOP — SLIDE CONTENT AND FACILITATOR NOTES
+Turn an old computer into an always-on personal AI assistant.
+Warsaw | 28 October 2026 | Pilot for two participants | 2–3 hours
 
-GOAL
-Bring an unused computer back to life as an always-available AI assistant. Participants should understand what an agent does, see one build its infrastructure, and use a simple custom interface to interact with it.
+STATUS AND USE
+Prepared presentation copy based on this repository's workshop plan, prompts,
+setup guides and demo acceptance tests. Visual deck: presentation.pen.
+Demo 2 source: demos/02-hermes-webapp/ (local mock starter).
+Demo 2 mission: prompts/02-build-control-center.md.
+English is the working language of this draft; delivery language is unconfirmed.
 
-SECTION 1 — AI FROM CHAT TO ACTION (approx. 20 min)
-Slide: Why a conversational model is not the whole product.
-Talking points: models predict and generate; harnesses supply tools, memory, scheduling and execution; connectors give access to services; an orchestrator coordinates work.
-Slide: Why agents fail.
-Talking points: poor instructions, missing permissions, invented results, unintended actions, spending surprises. Good workflow: inspect, plan, execute, validate, report.
-Slide: Cloud versus local.
-Talking points: local host can use a cloud model; a locally running model has different compute and memory demands. Explain costs and tradeoffs.
+ON SCREEN is the audience-facing copy. SPEAKER NOTES and LIVE CHECK are for
+the facilitator, not slide body text. Keep demo slides visible while working.
+The steps describe intended demonstrations, not tests that have already passed.
+Verify current upstream installation/API instructions before the event.
 
-SECTION 2 — THE TOOLS (approx. 15 min)
-Slide: Hermes: personal AI agent, memory, tools, scheduling, messaging, provider access.
-Slide: bb: agentic development workspace and technical project execution.
-Slide: Paperclip: coordinating agents, projects, workflows and approvals.
-Slide: Why separate responsibilities? They overlap but solve different operating problems.
+SESSION PLAN
+Block                                      3-hour session   2-hour session
+01–08  Understand agents and tools                 35 min          20 min
+09–12  Hardware, architecture and safety           20 min          10 min
+13–17  Demo 1: bootstrap and verify                55 min          35 min
+18–19  Private remote access                      15 min          10 min
+20–27  Demo 2: connect and personalize             45 min          35 min
+28–30  Review, next steps and questions            10 min          10 min
+TOTAL                                            180 min         120 min
 
-SECTION 3 — BRING BACK AN OLD COMPUTER (approx. 15 min)
-Slide: Proxmox as a small home server; what host, virtual machine and LXC mean.
-Slide: Proposed setup: Hermes LXC, bb LXC, Paperclip LXC.
-Slide: Tailscale in one sentence: a private path between your phone and home server without public router ports. It does not eliminate app authentication.
+Times include explanations, hands-on work and transitions, not just speaking.
+For two hours, Proxmox and the initial Hermes LXC must be ready at the start;
+pre-stage templates/installers and preflight the custom UI. Skip optional Gmail.
+If installation overruns, report its actual state and move on. Never remove
+approval or verification steps to fit the timebox. Keep slides 07–08 brief in
+the short session; they are orientation, not additional software tutorials.
 
-SECTION 4 — LIVE DEMO #1: THE AGENT BUILDS ITS ENVIRONMENT (approx. 40–55 min)
-Slide: Human installs Proxmox and starts Hermes in an initial LXC.
-Slide: Scan a QR code to open prompts/01-hermes-bootstrap.md and copy its mission.
-Slide: Hermes inspects the host, presents a resource plan and provisions two new LXCs with authorization.
-Slide: It installs bb and Paperclip, sets startup and safe maintenance, then tests both applications.
-Slide: What actually happened? Inspect logs, service health and real tasks rather than trusting a success message.
-Slide: Connect Tailscale and open the private resources from a phone.
+======================================================================
+01 — Give an old computer a new job
+======================================================================
+ON SCREEN
+Turn an old computer into an always-on personal AI assistant.
 
-SECTION 5 — A PERSONAL ASSISTANT, NOT ANOTHER CHATBOT (approx. 10 min)
-Slide: Product inspiration: Sauna AI. Learn from the public UX patterns: home, activity, memory, scheduled work and connections.
-Slide: Our own application is separate from Hermes's dashboard; Hermes is the intelligence behind it.
-Slide: The experience is tailored through onboarding, not through different versions for a coder and a businessperson.
+Understand it. Set it up. Give it one useful task.
+Warsaw · 28 October 2026
 
-SECTION 6 — LIVE DEMO #2: CONNECT THE PREPARED UI AND ONBOARD (approx. 25–45 min)
-Slide: Facilitator is preparing a separate custom UI starter ahead of the workshop; this session is integration, NOT live frontend construction. Do not claim the starter exists until it is tested.
-Slide: Each participant connects the prepared UI to THEIR OWN Hermes instance; keep personal data and credentials separate.
-Slide: Our application architecture: browser -> authenticated app server -> Hermes API.
-Slide: Start a conversational onboarding INSIDE the new app.
-Slide: Press microphone and speak; speech becomes text. Typing always works.
-Slide: The app stores a user-reviewed editable profile.
-Slide: Optionally connect Gmail through the Nous Portal flow, with user approval before any reading; only show as connected after verification.
-Slide: Hermes proposes a few helpful actions based on known facts.
-Slide: User approves one safe action. Hermes does it; UI shows observed results.
-Slide: If the UI starter is missing or fails to connect, fall back to the native Hermes interface and still demonstrate an actual task and onboarding conversation.
+SPEAKER NOTES
+Today is a small hands-on pilot, not a promise of a finished autonomous system.
+We will connect the ideas to things you can actually inspect and use. The
+computer must stay powered, connected and healthy to remain available.
 
-SECTION 7 — TAKE IT HOME (approx. 5–10 min)
-Slide: Secure access, backups, updates, and permissions matter.
-Slide: Try one new personally meaningful task tomorrow.
-Slide: Workshop resource repository: https://github.com/ComicBit/workshop
+OPENING QUESTION
+What is one repetitive task you would like help with?
 
-PACING
-For 3 hours: concepts 35 min; Proxmox and networking 20; bootstrap 55; remote test 15; UI onboarding 45; questions 10.
-For 2 hours: shorten concepts, pre-stage installers/templates and test a functional UI starter beforehand. Do not sacrifice validation or safe host permissions. If the starter isn't ready, use the native Hermes UI fallback.
+======================================================================
+02 — What we are aiming to leave with
+======================================================================
+ON SCREEN
+• A clear picture of how an agent works.
+• A home server with separately managed services.
+• Private access from your phone.
+• One useful task completed by your own assistant.
 
-OPEN FOR DISCUSSION
-Hardware capability; provider and Nous Portal entitlement; language; how much UI code to prebuild; what counts as an achievable live outcome.
+SPEAKER NOTES
+Demo 1 uses Hermes to set up bb and Paperclip. Demo 2 connects a separately
+prepared personal interface to your own Hermes and starts onboarding.
+The starter is in demos/02-hermes-webapp/; its default mode is local mock.
+If live integration is unavailable, use Hermes directly and label the fallback.
+Neither bb nor Paperclip is required for the personal assistant to run.
 
-PRESENTATION NOTE
-This file is CONTENT ONLY. No slide deck is created in this repository. Later slides should show two QR codes: repository home and the first Hermes bootstrap prompt.
+======================================================================
+03 — A model is not the whole assistant
+======================================================================
+ON SCREEN
+Model: generates answers and proposes next steps.
+Harness: provides tools, context and an execution loop.
+Connectors: give authorized access to other services.
+Orchestration: coordinates work across agents and projects.
+
+SPEAKER NOTES
+The model does not gain access to a computer or inbox just by talking about it.
+The surrounding software makes actions possible and controls access. Memory,
+scheduling and tools are capabilities supplied by the chosen harness/setup;
+their availability depends on configuration.
+Use a simple example: drafting a reply is text generation; retrieving a real
+message and saving a draft also require tools, access and verification.
+
+======================================================================
+04 — From answering to doing
+======================================================================
+ON SCREEN
+Chat: “Here is how you could do it.”
+Agent: “With your permission, I can try it and check the result.”
+
+Inspect → Plan → Approve → Execute → Verify → Report
+
+SPEAKER NOTES
+An agent can take multiple steps using tools and respond to the results.
+That does not make it infallible or entitled to act without limits. Approval
+is especially important for destructive, privileged, costly or external actions.
+For today's work, inspect the real machine before deciding what to change.
+
+======================================================================
+05 — A confident answer is not proof
+======================================================================
+ON SCREEN
+Common failures
+• Missing access or unclear instructions.
+• Unintended changes or unexpected spending.
+• Reporting success without testing it.
+
+Ask: “What did you check, and what happened?”
+
+SPEAKER NOTES
+A running process does not prove an application can perform a real task.
+A working page does not prove provider authentication works. Ask for observed
+output, not a restatement of the plan. Report PASS, FAIL, PENDING or BLOCKED
+with evidence and a next step. Never show an attempted install as a success.
+
+======================================================================
+06 — Local agent does not mean local model
+======================================================================
+ON SCREEN
+Local agent + cloud model
+Your machine runs the tools; a provider runs model inference.
+
+Local agent + local model
+Your machine runs both; compute and memory demands increase.
+
+Check cost, data flow and hardware before choosing.
+
+SPEAKER NOTES
+The workshop can use a cloud model with an agent on an old computer.
+Do not describe that setup as offline or entirely on-device. Model requests
+may carry context outside the machine; speech recognition can also use vendor
+servers. Review what each service receives. A chat subscription is not
+necessarily API access, and API usage may be billed separately.
+
+======================================================================
+07 — Three tools, different jobs
+======================================================================
+ON SCREEN
+Hermes
+Personal agent: tools, memory, scheduling and assistant interactions.
+
+bb
+Agentic development workspace for technical project work.
+
+Paperclip
+Coordination of agents, projects, workflows and approvals.
+
+SPEAKER NOTES
+These are roles in our workshop, not claims that the products never overlap.
+Hermes is our initial agent and the engine behind the later personal app.
+bb and Paperclip are the services we ask it to install in Demo 1.
+Provider authentication and integration support must be checked per tool.
+
+======================================================================
+08 — Why separate the responsibilities?
+======================================================================
+ON SCREEN
+One host. Separate services. Clear ownership.
+
+• Restart or update one service independently.
+• See where data and configuration belong.
+• Keep the personal assistant independent of the developer tools.
+
+SPEAKER NOTES
+Separate containers make management clearer; they do not remove the need for
+permissions, authentication or backups. Reusing a provider does not mean
+copying OAuth sessions between tools. Use supported authentication methods;
+if an integration is unsupported, record the manual step instead of bypassing it.
+
+TRANSITION
+Now let's look at the machine that will host these services.
+
+======================================================================
+09 — Before we touch the disk
+======================================================================
+ON SCREEN
+Installing Proxmox may erase the selected disk.
+
+• Back up important files.
+• Identify the correct target disk.
+• Check virtualization, memory, storage and network access.
+• Confirm before installing.
+
+SPEAKER NOTES
+Planning targets: spare x86-64 hardware, virtualization support, preferably
+8+ GB RAM; 16 GB is more comfortable. These are not verified minimums for
+all services together. Check each participant's machine and leave headroom.
+If hardware is unsuitable, use the facilitator's prepared host for the demo.
+The two-hour session starts with the baseline installation already complete.
+
+======================================================================
+10 — Proxmox: the host underneath the apps
+======================================================================
+ON SCREEN
+Host: the physical machine running Proxmox.
+Virtual machine: a guest with its own operating-system kernel.
+LXC: a Linux container sharing the host kernel.
+
+Today: one Proxmox host, three separate LXCs.
+
+SPEAKER NOTES
+Proxmox manages the guests and their resource allocations. Our proposed guests
+are Hermes, bb and Paperclip. LXCs are not virtual machines and are not an
+unbreakable security boundary. Prefer unprivileged containers; any additional
+privileges need a documented reason and explicit approval.
+
+======================================================================
+11 — The system we are setting up
+======================================================================
+ON SCREEN
+OLD COMPUTER / PROXMOX
+├── Hermes LXC — agent, tools and memory
+├── bb LXC — development workspace
+└── Paperclip LXC — coordination
+
+Phone/browser → private access → personal UI → Hermes
+
+The personal UI does not depend on bb or Paperclip.
+
+SPEAKER NOTES
+The personal UI is a separate application prepared by the facilitator, not a
+reskin of Hermes's dashboard. Its final deployment location remains to be
+confirmed. The complete request path includes an authenticated app backend
+between the browser and Hermes; we will show that in Demo 2.
+Do not imply all containers become remotely reachable merely by installing
+Tailscale on the host.
+
+======================================================================
+12 — Delegate a task, not unrestricted control
+======================================================================
+ON SCREEN
+Before host changes, review:
+• Which containers and resources will change?
+• What access does the agent need?
+• What could cost money or destroy data?
+• How will we recover if it fails?
+
+SPEAKER NOTES
+The facilitator grants a limited, authorized Proxmox management route.
+If the agent lacks access, it stops and explains what a human must configure.
+Do not give it permanent unrestricted root just to make the demo easier.
+Keep keys, private addresses, credentials and personal data out of this repo
+and off shared presentation screens.
+
+======================================================================
+13 — Demo 1: give Hermes its mission
+======================================================================
+ON SCREEN
+Starting point: Proxmox and the Hermes LXC are working.
+
+Mission: create separate bb and Paperclip LXCs,
+install the services, and prove they work.
+
+Open the bootstrap prompt. Review it before running it.
+[QR: bootstrap mission]
+
+QR / LINK TARGET
+https://github.com/ComicBit/workshop/blob/main/prompts/01-hermes-bootstrap.md
+
+SPEAKER NOTES
+Source: prompts/01-hermes-bootstrap.md. Confirm the repository branch/link
+before generating the final QR. Use the full prompt rather than reconstructing
+installation commands from slide copy. Let Hermes check current upstream docs.
+Do not paste credentials into the public repository or projected chat.
+
+======================================================================
+14 — First, inspect and propose
+======================================================================
+ON SCREEN
+Hermes checks:
+• Available CPU, RAM, storage and networking.
+• Existing guests, free container IDs and permissions.
+• Provider access and potential usage charges.
+
+Review the resource plan before the first host change.
+
+LIVE CHECK
+Can we identify exactly which two new containers it proposes to create?
+Is there enough capacity left for Proxmox and Hermes?
+
+SPEAKER NOTES
+Ask the agent to show allocations and impact in plain language. Do not assign
+fixed resources on a slide: use the actual host inventory. If capacity is
+insufficient, reduce scope with the human rather than silently overcommitting.
+
+======================================================================
+15 — Then, provision and install
+======================================================================
+ON SCREEN
+After approval:
+• Create two new unprivileged Debian LXCs.
+• Install bb and Paperclip using current upstream instructions.
+• Configure persistent data, logs and supervised services.
+• Keep access private and authenticated.
+
+LIVE CHECK
+Inspect actual container IDs, service state and installation logs.
+
+SPEAKER NOTES
+Do not modify unrelated guests or replace the original Hermes LXC.
+Authentication may need a user-performed login. Use supported methods and
+report any missing access. An interactive installer left running is not a
+restart-safe service. Extra container privileges require a separate decision.
+
+======================================================================
+16 — Test a task, not just a page
+======================================================================
+ON SCREEN
+For both services:
+• Open the UI.
+• Run a real agent-backed task.
+• Inspect the result and logs.
+• Verify restart behavior and persistent state.
+
+PASS / FAIL / PENDING / BLOCKED — with evidence.
+
+SPEAKER NOTES
+Suggested small bb test: create a README in a disposable workspace and inspect
+the actual file. For Paperclip, use a supported authenticated adapter to run a
+small task and inspect its result. These are proposed tests, not prevalidated
+integrations. An unauthenticated adapter is BLOCKED, not a successful task.
+Use demos/acceptance-tests.txt as the full checklist. If time runs out, keep
+incomplete checks visible and continue with the working Hermes baseline.
+
+======================================================================
+17 — Make tomorrow's restart boring
+======================================================================
+ON SCREEN
+Restart: guest starts, service restarts, data remains.
+Update: record version → back up → update → test.
+Recovery: know how to restore the previous working state.
+
+An update command is not a recovery plan.
+
+SPEAKER NOTES
+Separate OS security updates from application upgrades. Prefer approval for
+breaking changes and major versions. Use supported update instructions; do
+not run unrestricted “latest” installs under root. Keep backups outside the
+service being updated where possible. Distinguish configured policy from a
+restore that has actually been tested.
+
+TRANSITION
+The server works here. Next, can you reach it when you leave?
+
+======================================================================
+18 — Tailscale: a private route home
+======================================================================
+ON SCREEN
+Your phone and home server can connect over a private network.
+
+• Enroll authorized devices in your own tailnet.
+• Choose a private path to each service.
+• Keep application login enabled.
+
+No public router port forwarding for this workshop.
+
+SPEAKER NOTES
+Follow guides/tailscale.txt and current official Proxmox instructions.
+Installing Tailscale on the host can provide a path to Proxmox, but LXCs need
+an intentional access route: private reverse proxy, appropriate guest enrollment
+or controlled routing. Do not enable Funnel or broad public exposure.
+A private network does not replace application authentication or backups.
+
+======================================================================
+19 — The phone test
+======================================================================
+ON SCREEN
+1. Connect the phone to your own tailnet.
+2. Turn Wi-Fi off.
+3. Open the private service URL over cellular.
+4. Sign in and verify access.
+
+If it fails, diagnose the private route. Do not open router ports.
+
+LIVE CHECK
+Prove the connection is remote, private and usable from the phone.
+
+SPEAKER NOTES
+Check the intended service, not just the Tailscale device list. Verify network
+rules and application login. Resolve unexpected certificate/identity warnings
+rather than teaching people to ignore them. Keep private URLs in local notes.
+
+======================================================================
+20 — A personal assistant needs personal context
+======================================================================
+ON SCREEN
+What matters to you?
+What would you like to delegate?
+What should the assistant never do without asking?
+
+Personalization starts with your answers, not a guessed persona.
+
+SPEAKER NOTES
+Do not split the experience into “developer mode” and “business/crypto mode”.
+Let each participant describe their actual needs. Use the supplied webapp's
+conversation, tasks, knowledge and routines as the starting interface, not a
+promise that every visible mock feature is connected to a real service.
+
+======================================================================
+21 — Demo 2: connect the prepared interface
+======================================================================
+ON SCREEN
+Connect, don't build from scratch.
+
+• Open prompts/02-build-control-center.md.
+• Start from demos/02-hermes-webapp/.
+• Connect it to your own Hermes; keep data separate.
+
+If the UI is unavailable: use Hermes directly and label the fallback.
+
+SPEAKER NOTES
+Source and launch instructions: demos/02-hermes-webapp/README.md.
+Node.js 20+: cd demos/02-hermes-webapp && npm test && npm start.
+Open http://localhost:3000. The supplied app is MOCK, not live Hermes.
+Copy prompts/02-build-control-center.md into the authorized agent; it starts
+by inspecting this source and its adapter contract. Our /api/tools contract
+is not an existing Hermes endpoint. Implement and test the backend before
+the workshop; do not claim live integration from mock screens or unit tests.
+Mission: https://github.com/ComicBit/workshop/blob/main/prompts/02-build-control-center.md
+Source: https://github.com/ComicBit/workshop/tree/main/demos/02-hermes-webapp
+If blocked, say: “We are demonstrating the assistant directly in Hermes;
+the separate interface is still pending.”
+
+======================================================================
+22 — Keep the key out of the browser
+======================================================================
+ON SCREEN
+Browser / personal UI
+        ↓ authenticated session
+App backend / proxy
+        ↓ server-held credential
+Your Hermes API
+        ↓ approved tools
+Your tasks and services
+
+bb and Paperclip are not in this request path.
+
+SPEAKER NOTES
+The backend holds API_SERVER_KEY; never put it in frontend code or browser
+storage. Use only documented routes supported by the installed Hermes version
+and verify real responses. Restrict the actions the app can request; do not
+create an arbitrary shell-execution endpoint. Private networking complements,
+not replaces, app authentication and authorization.
+
+======================================================================
+23 — Start with a short conversation
+======================================================================
+ON SCREEN
+Speak or type. One question at a time.
+
+“What is taking most of your attention right now?”
+“What repetitive task would you like help with?”
+“What boundaries should I respect?”
+
+Review the proposed profile before saving it.
+
+SPEAKER NOTES
+Use prompts/03-personal-onboarding.md for behavior. Begin onboarding inside
+the custom UI when it is available. The microphone transcribes speech to text;
+this is not a text-to-speech demo. Activate recording only with consent and
+explain if the recognition service may process audio in the cloud. Typing is
+always the fallback. Ask only for useful voluntary information.
+
+======================================================================
+24 — Memory you can inspect and change
+======================================================================
+ON SCREEN
+Before remembering anything:
+• Show the proposed facts and preferences.
+• Let the person accept, edit or decline.
+• Provide a way to edit or delete saved context later.
+
+Your answers are facts. The assistant's guesses are not.
+
+LIVE CHECK
+Approve a small profile, reload the app, and verify it persists privately.
+
+SPEAKER NOTES
+A summary shown once in chat is not proof of persisted memory. Show the actual
+editable profile where supported. Store neither secrets nor unnecessary
+sensitive information. If using the Hermes fallback, demonstrate only supported
+memory behavior and mark custom profile UI checks pending.
+
+======================================================================
+25 — Gmail is optional, not a shortcut to consent
+======================================================================
+ON SCREEN
+Connect only if available and wanted.
+
+Authorize the account → verify connection → approve a bounded read.
+
+Sending, deleting or changing messages needs separate review.
+No Gmail? Continue with the context you chose to share.
+
+SPEAKER NOTES
+This is an optional extension after the core path works, not a baseline
+requirement. Verify Nous Portal/connector eligibility and the actual supported
+authorization route. Do not ask for a Google password in chat or build a new
+OAuth client by default. A button press alone does not mean “connected”.
+If authorized, agree a small date/message limit and summarize only retrieved
+evidence. Do not display private email content on shared screens.
+In the two-hour session, use this slide to explain boundaries and skip setup.
+
+======================================================================
+26 — Suggest something useful, with a reason
+======================================================================
+ON SCREEN
+Example — only if you told the assistant this:
+“I spend too much time preparing for weekly meetings.”
+
+Suggestion: create a reusable meeting-preparation checklist.
+Why: it addresses a task you said you repeat.
+Access needed: your answers; no inbox connection.
+
+Review, adjust or decline.
+
+SPEAKER NOTES
+This is an illustrative exchange, not a claim about either participant.
+Generate up to three suggestions from actual onboarding answers. Explain the
+basis and permissions for each. Do not invent deadlines, inbox contents or
+financial interests. Select one small task with an inspectable output rather
+than adding more integrations or scheduling a broad recurring automation.
+
+======================================================================
+27 — Approve one task. Inspect the result.
+======================================================================
+ON SCREEN
+1. Agree on the exact action.
+2. Approve the required access or changes.
+3. Let Hermes execute through available tools.
+4. Open the actual output.
+5. Record what succeeded or what blocked it.
+
+A promise is not a completed task.
+
+LIVE CHECK
+Complete a low-risk task and show its traceable result in activity/history
+where supported. For example: save an approved checklist and read it back.
+
+SPEAKER NOTES
+Use a supported private persistence tool; do not invent an API or pretend a
+file exists because the assistant printed its name. A text-only answer can
+be useful, but is not proof of a tool action. Verify tool output or retrieve
+the saved artifact. If access is missing, show the blocker and a safe manual
+workaround. For the custom UI, also verify phone access and restart behavior.
+Use the Demo 2 acceptance checklist; leave incomplete features marked pending.
+
+======================================================================
+28 — What actually worked today?
+======================================================================
+ON SCREEN
+Review the evidence:
+• bb and Paperclip: installed, tested, restart-safe?
+• Phone: private access over cellular?
+• Assistant: reviewed profile and one verified task?
+• Custom UI and Gmail: working, pending or blocked?
+
+Name the next step for anything unfinished.
+
+SPEAKER NOTES
+Use demos/acceptance-tests.txt, not memory or enthusiasm. Read the actual
+status of each path. A native Hermes fallback is useful, but is not a completed
+custom UI integration. Configuring a backup is not the same as testing restore.
+Do not mark untouched checks PASS. Keep credential details and addresses private.
+
+======================================================================
+29 — Give it one job tomorrow
+======================================================================
+ON SCREEN
+Choose one small, personally useful task.
+
+Keep access narrow.
+Review the result.
+Maintain backups and a recovery path.
+Expand only when you trust the evidence.
+
+SPEAKER NOTES
+Ask each participant to name a next task and the permissions it would need.
+If they want recurring work, define the schedule, scope and stop mechanism
+before enabling it. Know how to restart services, check logs and revoke access.
+Do not leave temporary elevated setup permissions in place after the workshop.
+
+======================================================================
+30 — Keep the prompts. Keep asking for proof.
+======================================================================
+ON SCREEN
+Workshop resources
+https://github.com/ComicBit/workshop
+[QR: repository home]
+
+Which component reasons? Which runs the tools?
+Can you reach the server privately from your phone?
+What did your assistant actually complete?
+
+SPEAKER NOTES
+Resources include both mission prompts, onboarding behavior, prerequisites,
+Tailscale guidance, acceptance checklist, presentation.pen and the runnable
+Demo 2 source in demos/02-hermes-webapp/. The starter is mock-only until integrated.
+Close with each person's completed task and next step.
+
+======================================================================
+FACILITATOR PREFLIGHT — NOT A SLIDE
+======================================================================
+[ ] Confirm language, participant hardware and 120- or 180-minute format.
+[ ] Confirm backups and target disks before any Proxmox installation.
+[ ] Prepare a working Proxmox host + Hermes LXC; stage templates/installers.
+[ ] Test scoped management access, provider auth and likely usage costs.
+[ ] Rehearse current bb/Paperclip installs and small authenticated tasks.
+[ ] Check restart, persistent storage, update/backup and recovery arrangements.
+[ ] Choose and rehearse the private network path to each guest service.
+[ ] Run demos/02-hermes-webapp/ locally; follow Prompt 2 and verify live Hermes requests.
+[ ] Test app login, server-only credentials and participant data isolation.
+[ ] Test onboarding, speech-to-text or typing, editable profile and real action.
+[ ] Verify phone access, including microphone/browser requirements as applicable.
+[ ] Check connector entitlement and consent flow only if showing optional Gmail.
+[ ] Prepare a truthful native-Hermes fallback and a no-Gmail task.
+[ ] Prepare a private status sheet using demos/acceptance-tests.txt.
+[ ] Validate both QR destinations and retain readable links beside the codes.
+[ ] Keep secrets, personal data and private URLs off projected/public materials.
+
+QR TARGETS — CREATE CODES WHEN BUILDING THE VISUAL DECK
+Repository:
+https://github.com/ComicBit/workshop
+Bootstrap mission (verify branch before publishing):
+https://github.com/ComicBit/workshop/blob/main/prompts/01-hermes-bootstrap.md
+
+Demo 2 mission:
+https://github.com/ComicBit/workshop/blob/main/prompts/02-build-control-center.md
+Demo 2 source:
+https://github.com/ComicBit/workshop/tree/main/demos/02-hermes-webapp
+
+SOURCE MAP
+presentation.pen — visual workshop deck, with Demo 2 prompt/source references.
+demos/02-hermes-webapp/README.md — starter setup, mock status and adapter contract.
+README.md — story, architecture, boundaries and references.
+notes/decisions.txt — agreed scope and unresolved decisions.
+guides/prerequisites.txt — hardware, preparation, safety and fallback paths.
+guides/tailscale.txt — private networking and cellular test.
+prompts/01-hermes-bootstrap.md — supervised infrastructure mission.
+prompts/02-build-control-center.md — prepared-UI integration brief.
+prompts/03-personal-onboarding.md — onboarding, memory, consent and first action.
+demos/acceptance-tests.txt — evidence required to claim completion.
+
+UPSTREAM LINKS — RECHECK BEFORE DELIVERY
+Hermes: https://hermes-agent.nousresearch.com/docs/
+Hermes API: https://hermes-agent.nousresearch.com/docs/user-guide/features/api-server
+Hermes CLI/connectors: https://hermes-agent.nousresearch.com/docs/reference/cli-commands
+bb: https://getbb.app/ | https://github.com/get-bb/bb
+Paperclip: https://paperclip.ing/ | https://docs.paperclip.ing/
+Proxmox: https://www.proxmox.com/en/products/proxmox-virtual-environment/overview
+Tailscale/Proxmox: https://tailscale.com/docs/integrations/proxmox

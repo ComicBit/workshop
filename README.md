@@ -2,13 +2,15 @@
 
 **Turn an old computer into an always-on personal AI assistant.**
 
-A 2–3 hour, hands-on workshop for two curious participants (one developer, one business/crypto professional). **These are working notes, not completed slides or a finished application.** We are deliberately keeping the slide content in text until the session plan is agreed.
+A 2–3 hour, hands-on workshop for two curious participants (one developer, one business/crypto professional). **Workshop materials include a visual presentation, prompts and a mock webapp starter.** The starter is not yet connected to a live Hermes instance.
 
 ## Open these first
 
 - [Slide content — plain text](content/slide-content.txt): talk track, timings, and demo transitions.
 - [First mission: Hermes bootstraps Proxmox services](prompts/01-hermes-bootstrap.md): copyable task prompt.
-- [Second mission: connect the prepared assistant UI](prompts/02-build-control-center.md): integrate a separate Sauna-inspired frontend with each participant's own Hermes instance. The UI is being prepared and is not yet available in this repository.
+- [Second mission: connect the prepared assistant UI](prompts/02-build-control-center.md): integration prompt that starts from the actual source.
+- [Demo 2 webapp starter](demos/02-hermes-webapp/): runnable frontend, mock tools, adapter contract, tests and setup instructions. Connect it to each participant's own Hermes instance.
+- [Visual presentation](presentation.pen): workshop deck with Demo 2 prompt and source references.
 - [Onboarding behavior prompt](prompts/03-personal-onboarding.md): voice-first personal discovery, optional Gmail connection, proactive suggestions.
 - [Participant setup](guides/prerequisites.txt): bring an old computer, provider access, and a phone.
 - [Tailscale quick guide](guides/tailscale.txt): private remote access, no router port forwarding.
@@ -28,7 +30,7 @@ bb and Paperclip are part of demo 1; **the custom personal assistant must NOT re
 
 ## Demo 2: agreed live scope
 
-The facilitator is preparing the UI separately; **the starter repository and working route are not available yet**. The live exercise is **connecting**, not building the frontend from scratch. Minimum UI: microphone/speech-to-text with typed fallback, a way to start conversational onboarding inside the UI, and a secure Hermes connection. Every attendee connects to their **own** Hermes installation and retains separate personal data. If the starter is not available or the integration fails, demonstrate onboarding and a real task directly through Hermes rather than claiming the custom app is working. Gmail via Nous Portal is a useful extension when available and authorized, not a prerequisite for the baseline demo.
+**The source is available at [`demos/02-hermes-webapp/`](demos/02-hermes-webapp/).** With Node.js 20+, run `cd demos/02-hermes-webapp && npm test && npm start`, then open http://localhost:3000. No dependency install is needed. This is a local mock prototype: its static server has no live Hermes API, login, microphone or onboarding implementation. Follow [Prompt 2](prompts/02-build-control-center.md) to integrate it before the workshop. The live exercise is **connecting**, not generating the frontend from scratch. Target UI: microphone/speech-to-text with typed fallback, conversational onboarding inside the UI, and a secure Hermes connection. Every attendee connects to their **own** Hermes installation and retains separate personal data. If the starter is not available or the integration fails, demonstrate onboarding and a real task directly through Hermes rather than claiming the custom app is working. Gmail via Nous Portal is a useful extension when available and authorized, not a prerequisite for the baseline demo.
 
 ```text
 OLD MACHINE / PROXMOX
@@ -53,7 +55,6 @@ Phone/browser ── Tailscale/private network ── Custom personal assistant 
 - The agent must distinguish observed successes from installation attempts.
 - A Gmail account is **connected by the user**; permissions are explicit and sending/deleting actions require review.
 - An application-update plan must include backups and recovery, not just `npm install latest`.
-- Sauna is a **product/UX inspiration**, not code or branding to copy.
 
 ## Verified starting references
 
@@ -63,6 +64,5 @@ Phone/browser ── Tailscale/private network ── Custom personal assistant 
 - [bb](https://getbb.app/) · [source](https://github.com/get-bb/bb)
 - [Paperclip](https://paperclip.ing/) · [documentation](https://docs.paperclip.ing/)
 - [Tailscale on Proxmox](https://tailscale.com/docs/integrations/proxmox)
-- [Sauna app UX reference](https://www.sauna.ai/learn/web-app)
 
 **Status:** workshop content captured as drafts; product details, time budget and hardware constraints still need a final review.

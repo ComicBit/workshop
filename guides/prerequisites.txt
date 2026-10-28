@@ -13,7 +13,7 @@ WHAT WE WILL SET UP
 - Hermes in its own Debian LXC; facilitator handles baseline install.
 - Hermes provisions bb and Paperclip as separate LXCs (Demo 1).
 - Tailscale for remote access; put phone and server in same user's tailnet.
-- Custom Sauna-inspired personal app, with Hermes as its backend (Demo 2). This is a working prototype, not a SaaS clone.
+- Custom Hermes webapp starter in demos/02-hermes-webapp/ (Demo 2). Runs locally with Node.js 20+; currently mock-only. Follow prompts/02-build-control-center.md to implement and verify the real Hermes backend before the workshop.
 
 HUMAN-SUPERVISED CHECKPOINTS
 - Identify the correct disk before installing Proxmox.
