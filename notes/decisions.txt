@@ -1,0 +1,41 @@
+WORKSHOP DESIGN NOTES / CURRENT STATE
+Date: 2026-10-28
+Status: discovery and drafting — not final presentation content.
+
+AGREED
+- 2–3 hours, two participants bringing old machines.
+- Audience mix: developer who dislikes routine coding; business/crypto person who is geeky but not a developer.
+- Revive old hardware using Proxmox.
+- Hermes runs in its own LXC as the original bootstrap agent.
+- First live demonstration: Hermes provisions two more LXCs and installs bb and Paperclip, including startup, access and recoverable update arrangements.
+- One AI provider per user's setup where technically and contractually supported; no unsafe sharing of OAuth credentials.
+- Introduce Tailscale simply and configure private remote access.
+- Second exercise is a personal AI assistant INSPIRED BY Sauna from Wordware.
+- It has a SEPARATE custom UI, not a fork/theme of Hermes's dashboard.
+- Hermes is the engine of that app. bb and Paperclip are NOT runtime dependencies.
+- Onboarding happens INSIDE the new UI, ideally voice-first; speech-to-text (not text-to-speech).
+- During onboarding, the assistant learns user-approved context and can propose real useful actions.
+- Gmail/other connectors via Nous Portal are a desirable part of flow, with user authorization and least privilege.
+- The point is not to pre-tailor to programmer vs crypto person; personalization emerges through onboarding.
+- Workshop repo hosts learning resources, prompts, setup notes, and text-first slide content. Visual slides made separately.
+
+NOT YET AGREED / MUST VERIFY
+- Exact second-app UI/UX, name and visual direction.
+- Whether there is time to build all UI from scratch versus deploy a prepared starter.
+- Hardware CPU/RAM/disk per attendee and Proxmox-compatible boot paths.
+- Whether attendees' paid Nous Portal or other provider access enables Gmail connectors.
+- Whether the UI can drive the latest connector authorization route directly or must open an assisted setup flow.
+- Update/recovery implementation details for different installed versions.
+- Relative priorities for time: both installs + Tailscale + UI likely exceed 2 hours if nothing is prepared.
+- Language of workshop and level of hand-holding.
+- Final order of remote-access onboarding relative to app demo.
+
+SCOPE DISCIPLINE
+Success is NOT cloning every Sauna feature. Success is a genuinely working custom surface:
+voice or text onboarding -> approved editable profile -> useful grounded suggestion
+-> explicit approval -> verifiable Hermes action.
+Gmail integration is a target, not permission to claim it works without a connection test.
+
+OBSERVED TOOL ACCESS
+Workshop GitHub repository: https://github.com/ComicBit/workshop
+GitHub app needed explicit access to the new repository; access added during workshop planning.
